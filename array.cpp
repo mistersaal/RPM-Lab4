@@ -4,7 +4,7 @@
  * @brief Реализация функций для работы с массивами
  */
 
-#include <random>
+#include <ctime>
 #include <iostream>
 #include <fstream>
 
@@ -12,13 +12,11 @@ using namespace std;
 
 int* fillRandomArray(int* A, int size)
 {
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<> dis(0, size * 2);
+    srand(time(0));
 
     A = new int[size];
     for(int i = 0; i < size; i++){
-        A[i] = dis(gen);
+        A[i] = rand() % (size * 2);
     }
     return A;
 }
